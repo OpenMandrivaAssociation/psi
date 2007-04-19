@@ -1,7 +1,7 @@
 %define name	psi
 %define version	0.11
 %define release	%mkrel 0.beta5.3
-%define date    2007-03-13
+%define date    2007-04-19
 %define section	Internet/Instant Messaging
 %define title	PSI
 %define Summary	PSI Jabber client using QT4
@@ -24,7 +24,8 @@ Source3:	%name-iconsets.tar.bz2
 BuildRoot:	%_tmppath/%name-buildroot
 BuildRequires:	qt4-devel 
 BuildRequires:  openssl-devel
-BuildRequires: desktop-file-utils
+BuildRequires:  desktop-file-utils
+BuildRequires:  jingle-devel
 Buildconflicts: qca2-devel
 Requires:	%name-lang-pack
 
@@ -326,8 +327,8 @@ This package adds support for en to psi.
 %build
 
 export QTDIR=/usr/lib/qt4/
-
-./configure --prefix=%{_prefix}  --bindir=%{_bindir}  --datadir=%{_datadir} --enable-debug  --disable-xmms
+chmod +x configure-jingle
+./configure-jingle --prefix=%{_prefix}  --bindir=%{_bindir}  --datadir=%{_datadir} --enable-debug 
 %make
 
 %install
