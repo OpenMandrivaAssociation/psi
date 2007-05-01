@@ -25,7 +25,7 @@ BuildRoot:	%_tmppath/%name-buildroot
 BuildRequires:	qt4-devel 
 BuildRequires:  openssl-devel
 BuildRequires:  desktop-file-utils
-BuildRequires:  jingle-devel
+BuildRequires:  libjingle-devel
 Buildconflicts: qca2-devel
 Requires:	%name-lang-pack
 
