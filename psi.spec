@@ -1,7 +1,7 @@
 %define name	psi
 %define version	0.11
-%define release	%mkrel 0.rc1.1
-%define date    2007-05-21
+%define release	%mkrel 0.rc2.1
+%define date    2007-07-17
 %define section	Internet/Instant Messaging
 %define title	PSI
 %define Summary	PSI Jabber client using QT4
