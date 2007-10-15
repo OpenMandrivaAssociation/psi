@@ -1,6 +1,6 @@
 %define name	psi
 %define version	0.11
-%define release	%mkrel 0.rc3.1
+%define release	%mkrel 1
 %define date    2007-10-10
 %define section	Internet/Instant Messaging
 %define title	PSI
@@ -16,8 +16,7 @@ Release:	%release
 License:	GPL
 Group:		Networking/Instant messaging
 URL:		http://psi-im.org
-#Source0:	http://prdownloads.sourceforge.net/psi/%name-%version-beta4.tar.bz2
-Source0:        http://psi.affinix.com/files/snapshot/psi-dev-snapshot-%date.tar.bz2
+Source0:	http://prdownloads.sourceforge.net/psi/%name-%version.tar.bz2
 Source1:	%name-icons.tar.bz2
 Source2:	%name-smileysets.tar.bz2
 Source3:	%name-iconsets.tar.bz2
