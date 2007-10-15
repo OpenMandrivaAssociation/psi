@@ -320,14 +320,13 @@ Provides:       %name-lang-pack
 This package adds support for en to psi.
 
 %prep
-%setup -q  -n psi-dev-snapshot-%date
-%setup -q -T -D -a1 -a2 -a3  -n psi-dev-snapshot-%date
+%setup -q  -n %name-%version
+%setup -q -T -D -a1 -a2 -a3  -n %name-%version
 
 %build
 
 export QTDIR=/usr/lib/qt4/
-chmod +x configure-jingle
-./configure-jingle --prefix=%{_prefix}  --bindir=%{_bindir}  --datadir=%{_datadir} --enable-debug 
+./configure --prefix=%{_prefix}  --bindir=%{_bindir}  --datadir=%{_datadir} --enable-debug 
 %make
 
 %install
