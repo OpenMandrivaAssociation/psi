@@ -19,7 +19,6 @@ Source0:	http://prdownloads.sourceforge.net/psi/%name-%version.tar.bz2
 Source1:	%name-icons.tar.bz2
 Source2:	%name-smileysets.tar.bz2
 Source3:	%name-iconsets.tar.bz2
-BuildRoot:	%_tmppath/%name-buildroot
 BuildRequires:	qt4-devel 
 BuildRequires:  openssl-devel
 BuildRequires:  desktop-file-utils
