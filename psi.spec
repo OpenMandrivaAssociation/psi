@@ -69,7 +69,7 @@ developer standpoint.
 
 %package -n %name-iconsets
 Summary:	Package with iconsets
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	%{name} = %{version}
 
 %description -n %name-iconsets
@@ -77,7 +77,7 @@ This package contain a various iconsets for psi.
 
 %package -n %name-smileysets
 Summary:	Package with smileysets
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	%{name} = %{version}
 
 %description -n %name-smileysets
@@ -85,7 +85,7 @@ This package contain a various smileysets for psi.
 
 %package -n %name-lang-pack-pl
 Summary:	Poland language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-pl
 Provides:	%name-lang-pack
 
@@ -94,7 +94,7 @@ This package adds support for pl to psi.
 
 %package -n %name-lang-pack-sr
 Summary:	Serbian language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-sr
 Provides:	%name-lang-pack
 
@@ -103,7 +103,7 @@ This package adds support for sr to psi.
 
 %package -n %name-lang-pack-fr
 Summary:	France language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-fr
 Provides:	%name-lang-pack
 
@@ -112,7 +112,7 @@ This package adds support for fr to psi.
 
 %package -n %name-lang-pack-eo
 Summary:	Esperanto language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-eo
 Provides:	%name-lang-pack
 
@@ -121,7 +121,7 @@ This package adds support for eo to psi.
 
 %package -n %name-lang-pack-sr_lat
 Summary:	Serbian latin language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-sr
 Provides:	%name-lang-pack
 
@@ -130,7 +130,7 @@ This package adds support for sr_lat to psi.
 
 %package -n %name-lang-pack-fi
 Summary:	Finland language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-fi
 Provides:	%name-lang-pack
 
@@ -139,7 +139,7 @@ This package adds support for fi to psi.
 
 %package -n %name-lang-pack-cs
 Summary:	Czech language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-cs
 Provides:	%name-lang-pack
 
@@ -148,7 +148,7 @@ This package adds support for cs to psi.
 
 %package -n %name-lang-pack-ru
 Summary:	Russian language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-ru
 Provides:	%name-lang-pack
 
@@ -157,7 +157,7 @@ This package adds support for ru to psi.
 
 %package -n %name-lang-pack-de
 Summary:	Deutsch language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-de
 Provides:	%name-lang-pack
 
@@ -166,7 +166,7 @@ This package adds support for de to psi.
 
 %package -n %name-lang-pack-es
 Summary:	Spanish language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-es
 Provides:	%name-lang-pack
 
@@ -175,7 +175,7 @@ This package adds support for es to psi.
 
 %package -n %name-lang-pack-mk
 Summary:	Macedonia language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-mk
 Provides:	%name-lang-pack
 
@@ -184,7 +184,7 @@ This package adds support for mk to psi.
 
 %package -n %name-lang-pack-nl
 Summary:	Dutch language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-nl
 Provides:	%name-lang-pack
 
@@ -193,7 +193,7 @@ This package adds support for nl to psi.
 
 %package -n %name-lang-pack-sk
 Summary:	Slovak language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-sk
 Provides:	%name-lang-pack
 
@@ -202,7 +202,7 @@ This package adds support for sk to psi.
 
 %package -n %name-lang-pack-el
 Summary:	Greek language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-el
 Provides:	%name-lang-pack
 
@@ -211,7 +211,7 @@ This package adds support for el to psi.
 
 %package -n %name-lang-pack-it
 Summary:	Italy language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-it
 Provides:	%name-lang-pack
 
@@ -220,7 +220,7 @@ This package adds support for it to psi.
 
 %package -n %name-lang-pack-se
 Summary:	Svedish language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-se
 Provides:	%name-lang-pack
 
@@ -229,7 +229,7 @@ This package adds support for se to psi.
 
 %package -n %name-lang-pack-zh
 Summary:	Chinese language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-zh
 Provides:	%name-lang-pack
 
@@ -238,7 +238,7 @@ This package adds support for zh to psi.
 
 %package -n %name-lang-pack-et
 Summary:	Estonian language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-et
 Provides:	%name-lang-pack
 
@@ -247,7 +247,7 @@ This package adds support for et to psi.
 
 %package -n %name-lang-pack-vi
 Summary:	Vietnamese language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-vi
 Provides:	%name-lang-pack
 
@@ -256,7 +256,7 @@ This package adds support for vi to psi.
 
 %package -n %name-lang-pack-ca
 Summary:	Catalanian language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-ca
 Provides:	%name-lang-pack
 
@@ -265,7 +265,7 @@ This package adds support for ca to psi.
 
 %package -n %name-lang-pack-hu
 Summary:	Hungarian language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-hu
 Provides:	%name-lang-pack
 
@@ -274,7 +274,7 @@ This package adds support for hu to psi.
 
 %package -n %name-lang-pack-pt
 Summary:	Partugal language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-pt
 Provides:	%name-lang-pack
 
@@ -283,7 +283,7 @@ This package adds support for pt to psi.
 
 %package -n %name-lang-pack-pt_br
 Summary:	Portugal brazilian language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-pt
 Provides:	%name-lang-pack
 
@@ -292,7 +292,7 @@ This package adds support for pt_br to psi.
 
 %package -n %name-lang-pack-sl
 Summary:	Slovenian language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-sl
 Provides:	%name-lang-pack
 
@@ -301,7 +301,7 @@ This package adds support for sl to psi.
 
 %package -n %name-lang-pack-bg
 Summary:	Bulgarian language pack for psi
-Group:		Networking/Chat
+Group:		Networking/Instant messaging
 Requires:	locales-bg
 Provides:	%name-lang-pack
 
@@ -310,7 +310,7 @@ This package adds support for bg to psi.
 
 %package -n %name-lang-pack-en
 Summary:        English language pack for psi
-Group:          Networking/Chat
+Group:          Networking/Instant messaging
 Requires:       locales-en
 Provides:       %name-lang-pack
 
