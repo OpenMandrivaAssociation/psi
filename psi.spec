@@ -1,6 +1,6 @@
 %define name	psi
-%define version	0.11
-%define release	%mkrel 1
+%define version	0.12
+%define release	%mkrel 0.Rc2.1
 %define section	Internet/Instant Messaging
 %define title	PSI
 %define Summary	PSI Jabber client using QT4
@@ -15,7 +15,7 @@ Release:	%release
 License:	GPL
 Group:		Networking/Instant messaging
 URL:		http://psi-im.org
-Source0:	http://prdownloads.sourceforge.net/psi/%name-%version.tar.bz2
+Source0:	http://prdownloads.sourceforge.net/psi/%name-%version-RC2.tar.bz2
 Source1:	%name-icons.tar.bz2
 Source2:	%name-smileysets.tar.bz2
 Source3:	%name-iconsets.tar.bz2
@@ -319,8 +319,8 @@ Provides:       %name-lang-pack
 This package adds support for en to psi.
 
 %prep
-%setup -q  -n %name-%version
-%setup -q -T -D -a1 -a2 -a3  -n %name-%version
+%setup -q  -n %name-%version-RC2
+%setup -q -T -D -a1 -a2 -a3  -n %name-%version-RC2
 
 %build
 
