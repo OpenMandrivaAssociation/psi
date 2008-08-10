@@ -1,6 +1,6 @@
 %define name	psi
 %define version	0.12
-%define release	%mkrel 1
+%define release	%mkrel 2
 %define section	Internet/Instant Messaging
 %define title	PSI
 %define Summary	PSI Jabber client using QT4
@@ -12,7 +12,7 @@ Summary:	%Summary
 Name:		%name
 Version:	%version
 Release:	%release
-License:	GPL
+License:	GPLv2+
 Group:		Networking/Instant messaging
 URL:		http://psi-im.org
 Source0:	http://prdownloads.sourceforge.net/psi/%name-%version.tar.gz
@@ -323,16 +323,13 @@ This package adds support for en to psi.
 %setup -q -T -D -a1 -a2 -a3  -n %name-%version
 
 %build
-
-export QTDIR=/usr/lib/qt4/
 ./configure --prefix=%{_prefix}  --bindir=%{_bindir}  --datadir=%{_datadir} --enable-debug 
+%qmake_qt4
 %make
 
 %install
 rm -rf %{buildroot}
-INSTALL_ROOT=%{buildroot}
-export INSTALL_ROOT
-%makeinstall_std
+make install INSTALL_ROOT=%{buildroot}
 
 # if some set is added/removed don't remember update files section too
 # Install smileysets
