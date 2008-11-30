@@ -1,6 +1,6 @@
 %define name	psi
 %define version	0.12
-%define release	%mkrel 2
+%define release	%mkrel 3
 %define section	Internet/Instant Messaging
 %define title	PSI
 %define Summary	PSI Jabber client using QT4
@@ -24,6 +24,7 @@ BuildRequires:	qt4-devel
 BuildRequires:  openssl-devel
 BuildRequires:  desktop-file-utils
 BuildRequires:  libjingle-devel
+BuildRequires:  aspell-devel
 Buildconflicts: qca2-devel
 Requires:	%name-lang-pack
 
