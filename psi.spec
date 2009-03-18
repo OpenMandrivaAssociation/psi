@@ -1,9 +1,11 @@
 %define name	psi
-%define version	0.12
-%define release	%mkrel 3
+%define version	0.12.1
+%define release	%mkrel 1
 %define section	Internet/Instant Messaging
 %define title	PSI
 %define Summary	PSI Jabber client using QT4
+
+%define Werror_cflags %nil
 
 # TODO
 # repackage iconsets and language files as noarch
@@ -19,13 +21,16 @@ Source0:	http://prdownloads.sourceforge.net/psi/%name-%version.tar.gz
 Source1:	%name-icons.tar.bz2
 Source2:	%name-smileysets.tar.bz2
 Source3:	%name-iconsets.tar.bz2
+Patch0:		psi-0.12-qt-4_5-compatibility.patch
+Patch1:		psi-0.12-qca.patch
+Patch2:		psi-0.12.1-buildfix.patch
 BuildRoot:	%_tmppath/%name-buildroot
 BuildRequires:	qt4-devel 
 BuildRequires:  openssl-devel
 BuildRequires:  desktop-file-utils
 BuildRequires:  libjingle-devel
 BuildRequires:  aspell-devel
-Buildconflicts: qca2-devel
+BuildRequires:  qca2-devel
 Requires:	%name-lang-pack
 
 # to update, run:
@@ -322,9 +327,12 @@ This package adds support for en to psi.
 %prep
 %setup -q  -n %name-%version
 %setup -q -T -D -a1 -a2 -a3  -n %name-%version
+%patch0 -p0 -b .qt4.5
+%patch1 -p0 -b .qca
+%patch2 -p1 -b .build
 
 %build
-./configure --prefix=%{_prefix}  --bindir=%{_bindir}  --datadir=%{_datadir} --enable-debug 
+./configure --prefix=%{_prefix}  --bindir=%{_bindir}  --datadir=%{_datadir} --enable-debug  --disable-bundled-qca
 %qmake_qt4
 %make
 
