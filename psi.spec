@@ -1,6 +1,6 @@
 %define name	psi
 %define version	0.13
-%define release	%mkrel 0.%prever.1
+%define release	%mkrel 0.%prever.2
 %define prever  rc1
 %define section	Internet/Instant Messaging
 %define title	PSI
@@ -332,7 +332,7 @@ This package adds support for en to psi.
 %patch1 -p0 -b .qca
 
 %build
-./configure --prefix=%{_prefix}  --bindir=%{_bindir}  --datadir=%{_datadir} --enable-debug  --disable-bundled-qca
+./configure --prefix=%{_prefix}  --bindir=%{_bindir}  --datadir=%{_datadir} --libdir=%{_libdir} --enable-debug  --disable-bundled-qca
 %qmake_qt4
 %make
 
