@@ -602,14 +602,6 @@ make install INSTALL_ROOT=%{buildroot}
 %__bzip2 -dc %{SOURCE73} > %{buildroot}%{_datadir}/%name/%{name}_sl.qm
 %__bzip2 -dc %{SOURCE74} > %{buildroot}%{_datadir}/%name/%{name}_bg.qm
 
-
-# Menu
-desktop-file-install --vendor="" \
-  --add-category="X-MandrivaLinux-Internet-InstantMessaging" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
-
-
-
 # icons
 %__install -D -m 644 %{name}48.png %buildroot/%_liconsdir/%name.png
 %__install -D -m 644 %{name}32.png %buildroot/%_iconsdir/%name.png
