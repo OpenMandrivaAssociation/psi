@@ -6,8 +6,6 @@
 %define title	PSI
 %define Summary	PSI Jabber client using QT4
 
-#define Werror_cflags %nil
-
 Summary:	%Summary
 Name:		%name
 Version:	%version
