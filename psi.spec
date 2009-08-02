@@ -8,9 +8,6 @@
 
 %define Werror_cflags %nil
 
-# TODO
-# repackage iconsets and language files as noarch
-
 Summary:	%Summary
 Name:		%name
 Version:	%version
@@ -75,6 +72,35 @@ there is an accepted standard for it in the Jabber community. Doing so ensures
 that Psi will be compatible, stable, and predictable, both from an end-user and
 developer standpoint.
 
+%files
+%defattr(0755,root,root,0755)
+%{_bindir}/*
+%defattr(0644,root,root,0755)
+%doc README COPYING
+%exclude %{_datadir}/%name/README
+%exclude %{_datadir}/%name/COPYING
+%dir %{_datadir}/%{name}
+%dir %{_datadir}/%{name}/certs
+%{_datadir}/%{name}/certs/*
+%dir %{_datadir}/%{name}/iconsets
+%dir %{_datadir}/%{name}/iconsets/system
+%dir %{_datadir}/%{name}/iconsets/system/default
+%{_datadir}/%{name}/iconsets/system/README
+%{_datadir}/%{name}/iconsets/system/default/*
+%dir %{_datadir}/%{name}/iconsets/roster
+%{_datadir}/%{name}/iconsets/roster/*
+%dir %{_datadir}/%{name}/iconsets/emoticons
+%dir %{_datadir}/%{name}/iconsets/emoticons/default
+%{_datadir}/%{name}/iconsets/emoticons/default/*
+%dir %{_datadir}/%{name}/sound
+%{_datadir}/%{name}/sound/*
+%{_datadir}/applications/psi.desktop
+%_miconsdir/*
+%_iconsdir/*
+%_liconsdir/*
+
+#--------------------------------------------------------------------
+
 %package -n %name-iconsets
 Summary:	Package with iconsets
 Group:		Networking/Instant messaging
@@ -83,6 +109,27 @@ Requires:	%{name} = %{version}
 %description -n %name-iconsets
 This package contain a various iconsets for psi.
 
+%files -n %name-iconsets
+%defattr(0644,root,root,0755)
+%{_datadir}/%{name}/iconsets/system/amibulb.jisp
+%{_datadir}/%{name}/iconsets/system/amiglobe.jisp
+%{_datadir}/%{name}/iconsets/system/berlin-icq.jisp
+%{_datadir}/%{name}/iconsets/system/berlin.jisp
+%{_datadir}/%{name}/iconsets/system/chrome.jisp
+%{_datadir}/%{name}/iconsets/system/dudes.jisp
+%{_datadir}/%{name}/iconsets/system/dudes2.jisp
+%{_datadir}/%{name}/iconsets/system/email.jisp
+%{_datadir}/%{name}/iconsets/system/gothRoster.jisp
+%{_datadir}/%{name}/iconsets/system/individual.jisp
+%{_datadir}/%{name}/iconsets/system/kitty.jisp
+%{_datadir}/%{name}/iconsets/system/lightbulb.jisp
+%{_datadir}/%{name}/iconsets/system/msn6.jisp
+%{_datadir}/%{name}/iconsets/system/neos.jisp
+%{_datadir}/%{name}/iconsets/system/speechbubbles.jisp
+%{_datadir}/%{name}/iconsets/system/stellar.jisp
+
+#--------------------------------------------------------------------
+
 %package -n %name-smileysets
 Summary:	Package with smileysets
 Group:		Networking/Instant messaging
@@ -90,6 +137,33 @@ Requires:	%{name} = %{version}
 
 %description -n %name-smileysets
 This package contain a various smileysets for psi.
+
+%files -n %name-smileysets
+%defattr(0644,root,root,0755)
+%{_datadir}/%{name}/iconsets/emoticons/AIM.jisp
+%{_datadir}/%{name}/iconsets/emoticons/Chibi.jisp
+%{_datadir}/%{name}/iconsets/emoticons/JIM.jisp
+%{_datadir}/%{name}/iconsets/emoticons/KMess-Cartoon-1.0.jisp
+%{_datadir}/%{name}/iconsets/emoticons/Ninja.jisp
+%{_datadir}/%{name}/iconsets/emoticons/Taryn.jisp
+%{_datadir}/%{name}/iconsets/emoticons/apple_ichat-1.0.jisp
+%{_datadir}/%{name}/iconsets/emoticons/critters-1.0.jisp
+%{_datadir}/%{name}/iconsets/emoticons/gadu-gadu.jisp
+%{_datadir}/%{name}/iconsets/emoticons/icq-2002a.jisp
+%{_datadir}/%{name}/iconsets/emoticons/ikonboard-3.1.jisp
+%{_datadir}/%{name}/iconsets/emoticons/invision_board-1.0.1.jisp
+%{_datadir}/%{name}/iconsets/emoticons/kreativ_squareheads.jisp
+%{_datadir}/%{name}/iconsets/emoticons/megapack-1.0.jisp
+%{_datadir}/%{name}/iconsets/emoticons/msn.jisp
+%{_datadir}/%{name}/iconsets/emoticons/patricks_faces-1.0.jisp
+%{_datadir}/%{name}/iconsets/emoticons/shinyicons.jisp
+%{_datadir}/%{name}/iconsets/emoticons/tlen.pl-3.73.jisp
+%{_datadir}/%{name}/iconsets/emoticons/trill-basic-smileys.jisp
+%{_datadir}/%{name}/iconsets/emoticons/webmessenger.jisp
+%{_datadir}/%{name}/iconsets/emoticons/wpkontakt-2.4.1.jisp
+%{_datadir}/%{name}/iconsets/emoticons/yahoo_messenger.jisp
+
+#--------------------------------------------------------------------
 
 %package -n %name-lang-pack-pl
 Summary:	Poland language pack for psi
@@ -100,6 +174,12 @@ Provides:	%name-lang-pack
 %description -n %name-lang-pack-pl
 This package adds support for pl to psi.
 
+%files -n %name-lang-pack-pl
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_pl.qm
+
+#--------------------------------------------------------------------
+
 %package -n %name-lang-pack-sr
 Summary:	Serbian language pack for psi
 Group:		Networking/Instant messaging
@@ -108,6 +188,12 @@ Provides:	%name-lang-pack
 
 %description -n %name-lang-pack-sr
 This package adds support for sr to psi.
+
+%files -n %name-lang-pack-sr
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_sr.qm
+
+#--------------------------------------------------------------------
 
 %package -n %name-lang-pack-fr
 Summary:	France language pack for psi
@@ -118,6 +204,12 @@ Provides:	%name-lang-pack
 %description -n %name-lang-pack-fr
 This package adds support for fr to psi.
 
+%files -n %name-lang-pack-fr
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_fr.qm
+
+#--------------------------------------------------------------------
+
 %package -n %name-lang-pack-eo
 Summary:	Esperanto language pack for psi
 Group:		Networking/Instant messaging
@@ -126,6 +218,12 @@ Provides:	%name-lang-pack
 
 %description -n %name-lang-pack-eo
 This package adds support for eo to psi.
+
+%files -n %name-lang-pack-eo
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_eo.qm
+
+#--------------------------------------------------------------------
 
 %package -n %name-lang-pack-sr_lat
 Summary:	Serbian latin language pack for psi
@@ -136,6 +234,12 @@ Provides:	%name-lang-pack
 %description -n %name-lang-pack-sr_lat
 This package adds support for sr_lat to psi.
 
+%files -n %name-lang-pack-sr_lat
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_sr@Latn.qm
+
+#--------------------------------------------------------------------
+
 %package -n %name-lang-pack-fi
 Summary:	Finland language pack for psi
 Group:		Networking/Instant messaging
@@ -144,6 +248,12 @@ Provides:	%name-lang-pack
 
 %description -n %name-lang-pack-fi
 This package adds support for fi to psi.
+
+%files -n %name-lang-pack-fi
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_fi.qm
+
+#--------------------------------------------------------------------
 
 %package -n %name-lang-pack-cs
 Summary:	Czech language pack for psi
@@ -154,6 +264,12 @@ Provides:	%name-lang-pack
 %description -n %name-lang-pack-cs
 This package adds support for cs to psi.
 
+%files -n %name-lang-pack-cs
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_cs.qm
+
+#--------------------------------------------------------------------
+
 %package -n %name-lang-pack-ru
 Summary:	Russian language pack for psi
 Group:		Networking/Instant messaging
@@ -162,6 +278,12 @@ Provides:	%name-lang-pack
 
 %description -n %name-lang-pack-ru
 This package adds support for ru to psi.
+
+%files -n %name-lang-pack-ru
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_ru.qm
+
+#--------------------------------------------------------------------
 
 %package -n %name-lang-pack-de
 Summary:	Deutsch language pack for psi
@@ -172,6 +294,12 @@ Provides:	%name-lang-pack
 %description -n %name-lang-pack-de
 This package adds support for de to psi.
 
+%files -n %name-lang-pack-de
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_de.qm
+
+#--------------------------------------------------------------------
+
 %package -n %name-lang-pack-es
 Summary:	Spanish language pack for psi
 Group:		Networking/Instant messaging
@@ -180,6 +308,13 @@ Provides:	%name-lang-pack
 
 %description -n %name-lang-pack-es
 This package adds support for es to psi.
+
+%files -n %name-lang-pack-es
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_es.qm
+
+#--------------------------------------------------------------------
+
 
 %package -n %name-lang-pack-mk
 Summary:	Macedonia language pack for psi
@@ -190,6 +325,12 @@ Provides:	%name-lang-pack
 %description -n %name-lang-pack-mk
 This package adds support for mk to psi.
 
+%files -n %name-lang-pack-mk
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_mk.qm
+
+#--------------------------------------------------------------------
+
 %package -n %name-lang-pack-nl
 Summary:	Dutch language pack for psi
 Group:		Networking/Instant messaging
@@ -198,6 +339,12 @@ Provides:	%name-lang-pack
 
 %description -n %name-lang-pack-nl
 This package adds support for nl to psi.
+
+%files -n %name-lang-pack-nl
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_nl.qm
+
+#--------------------------------------------------------------------
 
 %package -n %name-lang-pack-sk
 Summary:	Slovak language pack for psi
@@ -208,6 +355,12 @@ Provides:	%name-lang-pack
 %description -n %name-lang-pack-sk
 This package adds support for sk to psi.
 
+%files -n %name-lang-pack-sk
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_sk.qm
+
+#--------------------------------------------------------------------
+
 %package -n %name-lang-pack-el
 Summary:	Greek language pack for psi
 Group:		Networking/Instant messaging
@@ -216,6 +369,12 @@ Provides:	%name-lang-pack
 
 %description -n %name-lang-pack-el
 This package adds support for el to psi.
+
+%files -n %name-lang-pack-el
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_el.qm
+
+#--------------------------------------------------------------------
 
 %package -n %name-lang-pack-it
 Summary:	Italy language pack for psi
@@ -226,6 +385,12 @@ Provides:	%name-lang-pack
 %description -n %name-lang-pack-it
 This package adds support for it to psi.
 
+%files -n %name-lang-pack-it
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_it.qm
+
+#--------------------------------------------------------------------
+
 %package -n %name-lang-pack-se
 Summary:	Svedish language pack for psi
 Group:		Networking/Instant messaging
@@ -234,6 +399,12 @@ Provides:	%name-lang-pack
 
 %description -n %name-lang-pack-se
 This package adds support for se to psi.
+
+%files -n %name-lang-pack-se
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_se.qm
+
+#--------------------------------------------------------------------
 
 %package -n %name-lang-pack-zh
 Summary:	Chinese language pack for psi
@@ -244,6 +415,12 @@ Provides:	%name-lang-pack
 %description -n %name-lang-pack-zh
 This package adds support for zh to psi.
 
+%files -n %name-lang-pack-zh
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_zh.qm
+
+#--------------------------------------------------------------------
+
 %package -n %name-lang-pack-et
 Summary:	Estonian language pack for psi
 Group:		Networking/Instant messaging
@@ -252,6 +429,12 @@ Provides:	%name-lang-pack
 
 %description -n %name-lang-pack-et
 This package adds support for et to psi.
+
+%files -n %name-lang-pack-et
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_et.qm
+
+#--------------------------------------------------------------------
 
 %package -n %name-lang-pack-vi
 Summary:	Vietnamese language pack for psi
@@ -262,6 +445,12 @@ Provides:	%name-lang-pack
 %description -n %name-lang-pack-vi
 This package adds support for vi to psi.
 
+%files -n %name-lang-pack-vi
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_vi.qm
+
+#--------------------------------------------------------------------
+
 %package -n %name-lang-pack-ca
 Summary:	Catalanian language pack for psi
 Group:		Networking/Instant messaging
@@ -270,6 +459,12 @@ Provides:	%name-lang-pack
 
 %description -n %name-lang-pack-ca
 This package adds support for ca to psi.
+
+%files -n %name-lang-pack-ca
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_ca.qm
+
+#--------------------------------------------------------------------
 
 %package -n %name-lang-pack-hu
 Summary:	Hungarian language pack for psi
@@ -280,6 +475,12 @@ Provides:	%name-lang-pack
 %description -n %name-lang-pack-hu
 This package adds support for hu to psi.
 
+%files -n %name-lang-pack-hu
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_hu.qm
+
+#--------------------------------------------------------------------
+
 %package -n %name-lang-pack-pt
 Summary:	Partugal language pack for psi
 Group:		Networking/Instant messaging
@@ -288,6 +489,12 @@ Provides:	%name-lang-pack
 
 %description -n %name-lang-pack-pt
 This package adds support for pt to psi.
+
+%files -n %name-lang-pack-pt
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_pt.qm
+
+#--------------------------------------------------------------------
 
 %package -n %name-lang-pack-pt_br
 Summary:	Portugal brazilian language pack for psi
@@ -298,6 +505,12 @@ Provides:	%name-lang-pack
 %description -n %name-lang-pack-pt_br
 This package adds support for pt_br to psi.
 
+%files -n %name-lang-pack-pt_br
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_pt_BR.qm
+
+#--------------------------------------------------------------------
+
 %package -n %name-lang-pack-sl
 Summary:	Slovenian language pack for psi
 Group:		Networking/Instant messaging
@@ -306,6 +519,12 @@ Provides:	%name-lang-pack
 
 %description -n %name-lang-pack-sl
 This package adds support for sl to psi.
+
+%files -n %name-lang-pack-sl
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_sl.qm
+
+#--------------------------------------------------------------------
 
 %package -n %name-lang-pack-bg
 Summary:	Bulgarian language pack for psi
@@ -316,6 +535,12 @@ Provides:	%name-lang-pack
 %description -n %name-lang-pack-bg
 This package adds support for bg to psi.
 
+%files -n %name-lang-pack-bg
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_bg.qm
+
+#--------------------------------------------------------------------
+
 %package -n %name-lang-pack-en
 Summary:        English language pack for psi
 Group:          Networking/Instant messaging
@@ -324,6 +549,11 @@ Provides:       %name-lang-pack
 
 %description -n %name-lang-pack-en
 This package adds support for en to psi.
+
+%files -n %name-lang-pack-en
+%defattr(-,root,root)
+
+#--------------------------------------------------------------------
 
 %prep
 %setup -q  -n %name-%version
@@ -387,187 +617,3 @@ desktop-file-install --vendor="" \
 
 %clean
 rm -rf %{buildroot}
-
-%files 
-%defattr(0755,root,root,0755)
-%{_bindir}/*
-%defattr(0644,root,root,0755)
-%doc README COPYING
-%exclude %{_datadir}/%name/README
-%exclude %{_datadir}/%name/COPYING
-%dir %{_datadir}/%{name}
-# certs
-%dir %{_datadir}/%{name}/certs
-%{_datadir}/%{name}/certs/*
-# iconsets
-%dir %{_datadir}/%{name}/iconsets
-%dir %{_datadir}/%{name}/iconsets/system
-%dir %{_datadir}/%{name}/iconsets/system/default
-# system
-%{_datadir}/%{name}/iconsets/system/README
-#%{_datadir}/%{name}/iconsets/system/crystal_system.jisp
-%{_datadir}/%{name}/iconsets/system/default/*
-# roster
-%dir %{_datadir}/%{name}/iconsets/roster
-%{_datadir}/%{name}/iconsets/roster/*
-# emoticons
-%dir %{_datadir}/%{name}/iconsets/emoticons
-%dir %{_datadir}/%{name}/iconsets/emoticons/default
-%{_datadir}/%{name}/iconsets/emoticons/default/*
-# sound
-%dir %{_datadir}/%{name}/sound
-%{_datadir}/%{name}/sound/*
-# menu and icons
-%{_datadir}/applications/psi.desktop
-%_miconsdir/*
-%_iconsdir/*
-%_liconsdir/*
-
-%files -n %name-iconsets
-%defattr(0644,root,root,0755)
-%{_datadir}/%{name}/iconsets/system/amibulb.jisp 
-%{_datadir}/%{name}/iconsets/system/amiglobe.jisp
-%{_datadir}/%{name}/iconsets/system/berlin-icq.jisp
-%{_datadir}/%{name}/iconsets/system/berlin.jisp
-%{_datadir}/%{name}/iconsets/system/chrome.jisp
-%{_datadir}/%{name}/iconsets/system/dudes.jisp
-%{_datadir}/%{name}/iconsets/system/dudes2.jisp
-%{_datadir}/%{name}/iconsets/system/email.jisp
-%{_datadir}/%{name}/iconsets/system/gothRoster.jisp
-%{_datadir}/%{name}/iconsets/system/individual.jisp
-%{_datadir}/%{name}/iconsets/system/kitty.jisp
-%{_datadir}/%{name}/iconsets/system/lightbulb.jisp
-%{_datadir}/%{name}/iconsets/system/msn6.jisp
-%{_datadir}/%{name}/iconsets/system/neos.jisp
-%{_datadir}/%{name}/iconsets/system/speechbubbles.jisp
-%{_datadir}/%{name}/iconsets/system/stellar.jisp
-
-%files -n %name-smileysets
-%defattr(0644,root,root,0755)
-%{_datadir}/%{name}/iconsets/emoticons/AIM.jisp
-%{_datadir}/%{name}/iconsets/emoticons/Chibi.jisp
-%{_datadir}/%{name}/iconsets/emoticons/JIM.jisp
-%{_datadir}/%{name}/iconsets/emoticons/KMess-Cartoon-1.0.jisp
-%{_datadir}/%{name}/iconsets/emoticons/Ninja.jisp
-%{_datadir}/%{name}/iconsets/emoticons/Taryn.jisp
-%{_datadir}/%{name}/iconsets/emoticons/apple_ichat-1.0.jisp
-%{_datadir}/%{name}/iconsets/emoticons/critters-1.0.jisp
-%{_datadir}/%{name}/iconsets/emoticons/gadu-gadu.jisp
-%{_datadir}/%{name}/iconsets/emoticons/icq-2002a.jisp
-%{_datadir}/%{name}/iconsets/emoticons/ikonboard-3.1.jisp
-%{_datadir}/%{name}/iconsets/emoticons/invision_board-1.0.1.jisp
-%{_datadir}/%{name}/iconsets/emoticons/kreativ_squareheads.jisp
-%{_datadir}/%{name}/iconsets/emoticons/megapack-1.0.jisp
-%{_datadir}/%{name}/iconsets/emoticons/msn.jisp
-%{_datadir}/%{name}/iconsets/emoticons/patricks_faces-1.0.jisp
-%{_datadir}/%{name}/iconsets/emoticons/shinyicons.jisp
-%{_datadir}/%{name}/iconsets/emoticons/tlen.pl-3.73.jisp
-%{_datadir}/%{name}/iconsets/emoticons/trill-basic-smileys.jisp
-%{_datadir}/%{name}/iconsets/emoticons/webmessenger.jisp
-%{_datadir}/%{name}/iconsets/emoticons/wpkontakt-2.4.1.jisp
-%{_datadir}/%{name}/iconsets/emoticons/yahoo_messenger.jisp
-
-%files -n %name-lang-pack-pl
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_pl.qm
-
-%files -n %name-lang-pack-sr
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_sr.qm
-
-%files -n %name-lang-pack-fr
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_fr.qm
-
-%files -n %name-lang-pack-eo
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_eo.qm
-
-%files -n %name-lang-pack-sr_lat
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_sr@Latn.qm
-
-%files -n %name-lang-pack-fi
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_fi.qm
-
-%files -n %name-lang-pack-cs
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_cs.qm
-
-%files -n %name-lang-pack-ru
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_ru.qm
-
-%files -n %name-lang-pack-de
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_de.qm
-
-%files -n %name-lang-pack-es
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_es.qm
-
-%files -n %name-lang-pack-mk
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_mk.qm
-
-%files -n %name-lang-pack-nl
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_nl.qm
-
-%files -n %name-lang-pack-sk
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_sk.qm
-
-%files -n %name-lang-pack-el
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_el.qm
-
-%files -n %name-lang-pack-it
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_it.qm
-
-%files -n %name-lang-pack-se
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_se.qm
-
-%files -n %name-lang-pack-zh
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_zh.qm
-
-%files -n %name-lang-pack-et
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_et.qm
-
-%files -n %name-lang-pack-vi
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_vi.qm
-
-%files -n %name-lang-pack-ca
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_ca.qm
-
-%files -n %name-lang-pack-hu
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_hu.qm
-
-%files -n %name-lang-pack-pt
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_pt.qm
-
-%files -n %name-lang-pack-pt_br
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_pt_BR.qm
-
-%files -n %name-lang-pack-sl
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_sl.qm
-
-%files -n %name-lang-pack-bg
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_bg.qm
-
-%files -n %name-lang-pack-en
-%defattr(-,root,root)
-
-
