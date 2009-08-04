@@ -1,6 +1,6 @@
 %define name	psi
 %define version	0.13
-%define release	%mkrel 1
+%define release	%mkrel 2
 %define prever  rc2
 %define section	Internet/Instant Messaging
 %define title	PSI
@@ -28,6 +28,7 @@ BuildRequires:  libjingle-devel
 BuildRequires:  aspell-devel
 BuildRequires:  qca2-devel
 Requires:	%name-lang-pack
+Suggests:       psi-plugin-media
 
 # to update, run:
 # for i in de el es eo fi fr hu nl pl pt_BR sk sl vi bg mk;do wget http://psi-im.org/files/translation/%version/psi_${i}.qm -O `rpm --eval %_sourcedir`/psi_${i}.qm && bzip2 -f `rpm --eval %_sourcedir`/psi_${i}.qm;done
