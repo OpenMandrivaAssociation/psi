@@ -1,7 +1,7 @@
 %define name	psi
 %define version	0.13
-%define release	%mkrel 2
-%define prever  rc2
+%define release	%mkrel 3
+%define prever	rc2
 %define section	Internet/Instant Messaging
 %define title	PSI
 %define Summary	PSI Jabber client using QT4
@@ -33,6 +33,8 @@ Requires:       qca2-openssl
 # to update, run:
 # for i in de el es eo fi fr hu nl pl pt_BR sk sl vi bg mk;do wget http://psi-im.org/files/translation/%version/psi_${i}.qm -O `rpm --eval %_sourcedir`/psi_${i}.qm && bzip2 -f `rpm --eval %_sourcedir`/psi_${i}.qm;done
 # Language packs
+
+
 Source50:	psi_pl.qm.bz2
 Source51:	psi_sr.qm.bz2
 Source52:	psi_fr.qm.bz2
@@ -58,6 +60,7 @@ Source71:	psi_pt.qm.bz2
 Source72:	psi_pt_BR.qm.bz2
 Source73:	psi_sl.qm.bz2
 Source74:	psi_bg.qm.bz2
+
 
 %description
 Psi is the premiere Instant Messaging application designed for Microsoft
@@ -481,7 +484,7 @@ This package adds support for hu to psi.
 #--------------------------------------------------------------------
 
 %package -n %name-lang-pack-pt
-Summary:	Partugal language pack for psi
+Summary:	Portugal language pack for psi
 Group:		Networking/Instant messaging
 Requires:	locales-pt
 Provides:	%name-lang-pack
@@ -554,6 +557,12 @@ This package adds support for en to psi.
 
 #--------------------------------------------------------------------
 
+
+
+
+
+
+
 %prep
 %setup -q  -n %name-%version
 %setup -q -T -D -a1 -a2 -a3  -n %name-%version
@@ -600,6 +609,7 @@ make install INSTALL_ROOT=%{buildroot}
 %__bzip2 -dc %{SOURCE72} > %{buildroot}%{_datadir}/%name/%{name}_pt_BR.qm
 %__bzip2 -dc %{SOURCE73} > %{buildroot}%{_datadir}/%name/%{name}_sl.qm
 %__bzip2 -dc %{SOURCE74} > %{buildroot}%{_datadir}/%name/%{name}_bg.qm
+
 
 # icons
 %__install -D -m 644 %{name}48.png %buildroot/%_liconsdir/%name.png
