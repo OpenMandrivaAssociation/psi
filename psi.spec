@@ -1,7 +1,7 @@
 %define name	psi
-%define version	0.13
-%define release	%mkrel 3
+%define version	0.14
 %define prever	rc2
+%define release	%mkrel 0.%prever.1
 %define section	Internet/Instant Messaging
 %define title	PSI
 %define Summary	PSI Jabber client using QT4
@@ -13,12 +13,13 @@ Release:	%release
 License:	GPLv2+
 Group:		Networking/Instant messaging
 URL:		http://psi-im.org
-Source0:	http://prdownloads.sourceforge.net/psi/%name-%version.tar.bz2
+Source0:	http://prdownloads.sourceforge.net/psi/%name-%version-%prever.tar.bz2
 Source1:	%name-icons.tar.bz2
 Source2:	%name-smileysets.tar.bz2
 Source3:	%name-iconsets.tar.bz2
 Patch0:		psi-0.12-qt-4_5-compatibility.patch
-Patch1:		psi-0.12-qca.patch
+#Patch1:		psi-0.12-qca.patch
+Patch1:		psi-0.14-rc1-qca.patch
 Patch2:		psi-0.12.1-buildfix.patch
 BuildRoot:	%_tmppath/%name-buildroot
 BuildRequires:	qt4-devel 
@@ -26,6 +27,7 @@ BuildRequires:  openssl-devel
 BuildRequires:  desktop-file-utils
 BuildRequires:  libjingle-devel
 BuildRequires:  aspell-devel
+BuildRequires:	enchant-devel
 BuildRequires:  qca2-devel
 Requires:	%name-lang-pack
 Suggests:       psi-plugin-media
@@ -60,7 +62,8 @@ Source71:	psi_pt.qm.bz2
 Source72:	psi_pt_BR.qm.bz2
 Source73:	psi_sl.qm.bz2
 Source74:	psi_bg.qm.bz2
-
+Source75:	psi_be.qm.bz2
+Source76:	psi_ur_PK.qm.bz2
 
 %description
 Psi is the premiere Instant Messaging application designed for Microsoft
@@ -557,6 +560,35 @@ This package adds support for en to psi.
 
 #--------------------------------------------------------------------
 
+%package -n %name-lang-pack-be
+Summary:        Belarusian language pack for psi
+Group:          Networking/Instant messaging
+Requires:       locales-be
+Provides:       %name-lang-pack
+
+%description -n %name-lang-pack-be
+This package adds support for be to psi.
+
+%files -n %name-lang-pack-be
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_be.qm
+
+#--------------------------------------------------------------------
+
+%package -n %name-lang-pack-ur_PK
+Summary:        Urdu language pack for psi
+Group:          Networking/Instant messaging
+Requires:       locales-ur
+Provides:       %name-lang-pack
+
+%description -n %name-lang-pack-ur_PK
+This package adds support for ur to psi.
+
+%files -n %name-lang-pack-ur_PK
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_ur_PK.qm
+
+#--------------------------------------------------------------------
 
 
 
@@ -564,12 +596,12 @@ This package adds support for en to psi.
 
 
 %prep
-%setup -q  -n %name-%version
-%setup -q -T -D -a1 -a2 -a3  -n %name-%version
+%setup -q  -n %name-%version-%prever
+%setup -q -T -D -a1 -a2 -a3  -n %name-%version-%prever
 %patch1 -p0 -b .qca
 
 %build
-./configure --prefix=%{_prefix}  --bindir=%{_bindir}  --datadir=%{_datadir} --libdir=%{_libdir} --enable-debug  --disable-bundled-qca
+./configure --prefix=%{_prefix}  --bindir=%{_bindir}  --datadir=%{_datadir} --libdir=%{_libdir} --disable-bundled-qca
 %qmake_qt4
 %make
 
@@ -609,7 +641,8 @@ make install INSTALL_ROOT=%{buildroot}
 %__bzip2 -dc %{SOURCE72} > %{buildroot}%{_datadir}/%name/%{name}_pt_BR.qm
 %__bzip2 -dc %{SOURCE73} > %{buildroot}%{_datadir}/%name/%{name}_sl.qm
 %__bzip2 -dc %{SOURCE74} > %{buildroot}%{_datadir}/%name/%{name}_bg.qm
-
+%__bzip2 -dc %{SOURCE75} > %{buildroot}%{_datadir}/%name/%{name}_be.qm
+%__bzip2 -dc %{SOURCE76} > %{buildroot}%{_datadir}/%name/%{name}_ur_PK.qm
 
 # icons
 %__install -D -m 644 %{name}48.png %buildroot/%_liconsdir/%name.png
