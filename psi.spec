@@ -23,15 +23,15 @@ Patch1:		psi-0.14-rc1-qca.patch
 Patch2:		psi-0.12.1-buildfix.patch
 BuildRoot:	%_tmppath/%name-buildroot
 BuildRequires:	qt4-devel 
-BuildRequires:  openssl-devel
-BuildRequires:  desktop-file-utils
-BuildRequires:  libjingle-devel
-BuildRequires:  aspell-devel
+BuildRequires:	openssl-devel
+BuildRequires:	desktop-file-utils
+BuildRequires:	libjingle-devel
+BuildRequires:	aspell-devel
 BuildRequires:	enchant-devel
-BuildRequires:  qca2-devel
+BuildRequires:	qca2-devel
 Requires:	%name-lang-pack
-Suggests:       psi-plugin-media
-Requires:       qca2-openssl
+Suggests:	psi-plugin-media
+Requires:	qca2-openssl
 # to update, run:
 # for i in de el es eo fi fr hu nl pl pt_BR sk sl vi bg mk;do wget http://psi-im.org/files/translation/%version/psi_${i}.qm -O `rpm --eval %_sourcedir`/psi_${i}.qm && bzip2 -f `rpm --eval %_sourcedir`/psi_${i}.qm;done
 # Language packs
@@ -547,10 +547,10 @@ This package adds support for bg to psi.
 #--------------------------------------------------------------------
 
 %package -n %name-lang-pack-en
-Summary:        English language pack for psi
-Group:          Networking/Instant messaging
-Requires:       locales-en
-Provides:       %name-lang-pack
+Summary:	English language pack for psi
+Group:		Networking/Instant messaging
+Requires:	locales-en
+Provides:	%name-lang-pack
 
 %description -n %name-lang-pack-en
 This package adds support for en to psi.
@@ -561,10 +561,10 @@ This package adds support for en to psi.
 #--------------------------------------------------------------------
 
 %package -n %name-lang-pack-be
-Summary:        Belarusian language pack for psi
-Group:          Networking/Instant messaging
-Requires:       locales-be
-Provides:       %name-lang-pack
+Summary:	Belarusian language pack for psi
+Group:		Networking/Instant messaging
+Requires:	locales-be
+Provides:	%name-lang-pack
 
 %description -n %name-lang-pack-be
 This package adds support for be to psi.
@@ -576,10 +576,10 @@ This package adds support for be to psi.
 #--------------------------------------------------------------------
 
 %package -n %name-lang-pack-ur_PK
-Summary:        Urdu language pack for psi
-Group:          Networking/Instant messaging
-Requires:       locales-ur
-Provides:       %name-lang-pack
+Summary:	Urdu language pack for psi
+Group:		Networking/Instant messaging
+Requires:	locales-ur
+Provides:	%name-lang-pack
 
 %description -n %name-lang-pack-ur_PK
 This package adds support for ur to psi.
@@ -601,12 +601,13 @@ This package adds support for ur to psi.
 %patch1 -p0 -b .qca
 
 %build
-./configure --prefix=%{_prefix}  --bindir=%{_bindir}  --datadir=%{_datadir} --libdir=%{_libdir} --disable-bundled-qca
-%qmake_qt4
+./configure --prefix=%{_prefix} --bindir=%{_bindir} --datadir=%{_datadir} --libdir=%{_libdir} --disable-bundled-qca
+%qmake_qt4 psi.pro
+
 %make
 
 %install
-rm -rf %{buildroot}
+%__rm -rf %{buildroot}
 make install INSTALL_ROOT=%{buildroot}
 
 # if some set is added/removed don't remember update files section too
@@ -650,4 +651,4 @@ make install INSTALL_ROOT=%{buildroot}
 %__install -D -m 644 %{name}16.png %buildroot/%_miconsdir/%name.png
 
 %clean
-rm -rf %{buildroot}
+%__rm -rf %{buildroot}
