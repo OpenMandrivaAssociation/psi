@@ -1,6 +1,6 @@
 %define name	psi
 %define version	0.14
-%define prever	rc2
+%define prever	rc3
 %define release	%mkrel 0.%prever.1
 %define section	Internet/Instant Messaging
 %define title	PSI
@@ -18,7 +18,6 @@ Source1:	%name-icons.tar.bz2
 Source2:	%name-smileysets.tar.bz2
 Source3:	%name-iconsets.tar.bz2
 Patch0:		psi-0.12-qt-4_5-compatibility.patch
-#Patch1:		psi-0.12-qca.patch
 Patch1:		psi-0.14-rc1-qca.patch
 Patch2:		psi-0.12.1-buildfix.patch
 BuildRoot:	%_tmppath/%name-buildroot
