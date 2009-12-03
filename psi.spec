@@ -1,7 +1,6 @@
 %define name	psi
 %define version	0.14
-%define prever	rc3
-%define release	%mkrel 0.%prever.1
+%define release	%mkrel	1
 %define section	Internet/Instant Messaging
 %define title	PSI
 %define Summary	PSI Jabber client using QT4
@@ -13,7 +12,7 @@ Release:	%release
 License:	GPLv2+
 Group:		Networking/Instant messaging
 URL:		http://psi-im.org
-Source0:	http://prdownloads.sourceforge.net/psi/%name-%version-%prever.tar.bz2
+Source0:	http://prdownloads.sourceforge.net/psi/%name-%version.tar.bz2
 Source1:	%name-icons.tar.bz2
 Source2:	%name-smileysets.tar.bz2
 Source3:	%name-iconsets.tar.bz2
@@ -31,38 +30,29 @@ BuildRequires:	qca2-devel
 Requires:	%name-lang-pack
 Suggests:	psi-plugin-media
 Requires:	qca2-openssl
+# Old translations for 0.9.3
 # to update, run:
 # for i in de el es eo fi fr hu nl pl pt_BR sk sl vi bg mk;do wget http://psi-im.org/files/translation/%version/psi_${i}.qm -O `rpm --eval %_sourcedir`/psi_${i}.qm && bzip2 -f `rpm --eval %_sourcedir`/psi_${i}.qm;done
-# Language packs
+# 
+# Translations files has been moved on psi website, you can update them using this little script
+#for i in be cs de es fr it ja mk pl pt_BR ru sl sv ur_PK zh_TW ;do wget http://psi-im.org/download/lang/psi_${i}.qm && bzip2 -f psi_${i}.qm;done
 
 
 Source50:	psi_pl.qm.bz2
-Source51:	psi_sr.qm.bz2
 Source52:	psi_fr.qm.bz2
-Source53:	psi_eo.qm.bz2
-Source54:	psi_sr@Latn.qm.bz2
-Source55:	psi_fi.qm.bz2
 Source56:	psi_cs.qm.bz2
 Source57:	psi_ru.qm.bz2
 Source58:	psi_de.qm.bz2
 Source59:	psi_es.qm.bz2
 Source60:	psi_mk.qm.bz2
-Source61:	psi_nl.qm.bz2
-Source62:	psi_sk.qm.bz2
-Source63:	psi_el.qm.bz2
 Source64:	psi_it.qm.bz2
-Source65:	psi_se.qm.bz2
-Source66:	psi_zh.qm.bz2
-Source67:	psi_et.qm.bz2
-Source68:	psi_vi.qm.bz2
-Source69:	psi_ca.qm.bz2
-Source70:	psi_hu.qm.bz2
-Source71:	psi_pt.qm.bz2
+Source66:	psi_zh_TW.qm.bz2
 Source72:	psi_pt_BR.qm.bz2
 Source73:	psi_sl.qm.bz2
-Source74:	psi_bg.qm.bz2
 Source75:	psi_be.qm.bz2
 Source76:	psi_ur_PK.qm.bz2
+Source77:	psi_ja.qm.bz2
+Source78:	psi_sv.qm.bz2
 
 %description
 Psi is the premiere Instant Messaging application designed for Microsoft
@@ -182,20 +172,6 @@ This package adds support for pl to psi.
 %defattr(-,root,root)
 %{_datadir}/%name/%{name}_pl.qm
 
-#--------------------------------------------------------------------
-
-%package -n %name-lang-pack-sr
-Summary:	Serbian language pack for psi
-Group:		Networking/Instant messaging
-Requires:	locales-sr
-Provides:	%name-lang-pack
-
-%description -n %name-lang-pack-sr
-This package adds support for sr to psi.
-
-%files -n %name-lang-pack-sr
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_sr.qm
 
 #--------------------------------------------------------------------
 
@@ -212,50 +188,6 @@ This package adds support for fr to psi.
 %defattr(-,root,root)
 %{_datadir}/%name/%{name}_fr.qm
 
-#--------------------------------------------------------------------
-
-%package -n %name-lang-pack-eo
-Summary:	Esperanto language pack for psi
-Group:		Networking/Instant messaging
-Requires:	locales-eo
-Provides:	%name-lang-pack
-
-%description -n %name-lang-pack-eo
-This package adds support for eo to psi.
-
-%files -n %name-lang-pack-eo
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_eo.qm
-
-#--------------------------------------------------------------------
-
-%package -n %name-lang-pack-sr_lat
-Summary:	Serbian latin language pack for psi
-Group:		Networking/Instant messaging
-Requires:	locales-sr
-Provides:	%name-lang-pack
-
-%description -n %name-lang-pack-sr_lat
-This package adds support for sr_lat to psi.
-
-%files -n %name-lang-pack-sr_lat
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_sr@Latn.qm
-
-#--------------------------------------------------------------------
-
-%package -n %name-lang-pack-fi
-Summary:	Finland language pack for psi
-Group:		Networking/Instant messaging
-Requires:	locales-fi
-Provides:	%name-lang-pack
-
-%description -n %name-lang-pack-fi
-This package adds support for fi to psi.
-
-%files -n %name-lang-pack-fi
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_fi.qm
 
 #--------------------------------------------------------------------
 
@@ -333,50 +265,6 @@ This package adds support for mk to psi.
 %defattr(-,root,root)
 %{_datadir}/%name/%{name}_mk.qm
 
-#--------------------------------------------------------------------
-
-%package -n %name-lang-pack-nl
-Summary:	Dutch language pack for psi
-Group:		Networking/Instant messaging
-Requires:	locales-nl
-Provides:	%name-lang-pack
-
-%description -n %name-lang-pack-nl
-This package adds support for nl to psi.
-
-%files -n %name-lang-pack-nl
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_nl.qm
-
-#--------------------------------------------------------------------
-
-%package -n %name-lang-pack-sk
-Summary:	Slovak language pack for psi
-Group:		Networking/Instant messaging
-Requires:	locales-sk
-Provides:	%name-lang-pack
-
-%description -n %name-lang-pack-sk
-This package adds support for sk to psi.
-
-%files -n %name-lang-pack-sk
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_sk.qm
-
-#--------------------------------------------------------------------
-
-%package -n %name-lang-pack-el
-Summary:	Greek language pack for psi
-Group:		Networking/Instant messaging
-Requires:	locales-el
-Provides:	%name-lang-pack
-
-%description -n %name-lang-pack-el
-This package adds support for el to psi.
-
-%files -n %name-lang-pack-el
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_el.qm
 
 #--------------------------------------------------------------------
 
@@ -393,20 +281,6 @@ This package adds support for it to psi.
 %defattr(-,root,root)
 %{_datadir}/%name/%{name}_it.qm
 
-#--------------------------------------------------------------------
-
-%package -n %name-lang-pack-se
-Summary:	Svedish language pack for psi
-Group:		Networking/Instant messaging
-Requires:	locales-se
-Provides:	%name-lang-pack
-
-%description -n %name-lang-pack-se
-This package adds support for se to psi.
-
-%files -n %name-lang-pack-se
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_se.qm
 
 #--------------------------------------------------------------------
 
@@ -421,82 +295,7 @@ This package adds support for zh to psi.
 
 %files -n %name-lang-pack-zh
 %defattr(-,root,root)
-%{_datadir}/%name/%{name}_zh.qm
-
-#--------------------------------------------------------------------
-
-%package -n %name-lang-pack-et
-Summary:	Estonian language pack for psi
-Group:		Networking/Instant messaging
-Requires:	locales-et
-Provides:	%name-lang-pack
-
-%description -n %name-lang-pack-et
-This package adds support for et to psi.
-
-%files -n %name-lang-pack-et
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_et.qm
-
-#--------------------------------------------------------------------
-
-%package -n %name-lang-pack-vi
-Summary:	Vietnamese language pack for psi
-Group:		Networking/Instant messaging
-Requires:	locales-vi
-Provides:	%name-lang-pack
-
-%description -n %name-lang-pack-vi
-This package adds support for vi to psi.
-
-%files -n %name-lang-pack-vi
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_vi.qm
-
-#--------------------------------------------------------------------
-
-%package -n %name-lang-pack-ca
-Summary:	Catalanian language pack for psi
-Group:		Networking/Instant messaging
-Requires:	locales-ca
-Provides:	%name-lang-pack
-
-%description -n %name-lang-pack-ca
-This package adds support for ca to psi.
-
-%files -n %name-lang-pack-ca
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_ca.qm
-
-#--------------------------------------------------------------------
-
-%package -n %name-lang-pack-hu
-Summary:	Hungarian language pack for psi
-Group:		Networking/Instant messaging
-Requires:	locales-hu
-Provides:	%name-lang-pack
-
-%description -n %name-lang-pack-hu
-This package adds support for hu to psi.
-
-%files -n %name-lang-pack-hu
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_hu.qm
-
-#--------------------------------------------------------------------
-
-%package -n %name-lang-pack-pt
-Summary:	Portugal language pack for psi
-Group:		Networking/Instant messaging
-Requires:	locales-pt
-Provides:	%name-lang-pack
-
-%description -n %name-lang-pack-pt
-This package adds support for pt to psi.
-
-%files -n %name-lang-pack-pt
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_pt.qm
+%{_datadir}/%name/%{name}_zh_TW.qm
 
 #--------------------------------------------------------------------
 
@@ -527,21 +326,6 @@ This package adds support for sl to psi.
 %files -n %name-lang-pack-sl
 %defattr(-,root,root)
 %{_datadir}/%name/%{name}_sl.qm
-
-#--------------------------------------------------------------------
-
-%package -n %name-lang-pack-bg
-Summary:	Bulgarian language pack for psi
-Group:		Networking/Instant messaging
-Requires:	locales-bg
-Provides:	%name-lang-pack
-
-%description -n %name-lang-pack-bg
-This package adds support for bg to psi.
-
-%files -n %name-lang-pack-bg
-%defattr(-,root,root)
-%{_datadir}/%name/%{name}_bg.qm
 
 #--------------------------------------------------------------------
 
@@ -589,14 +373,42 @@ This package adds support for ur to psi.
 
 #--------------------------------------------------------------------
 
+%package -n %name-lang-pack-ja
+Summary:	Japanase language pack for psi
+Group:		Networking/Instant messaging
+Requires:	locales-ja
+Provides:	%name-lang-pack
 
+%description -n %name-lang-pack-ja
+This package adds support for ja to psi.
+
+%files -n %name-lang-pack-ja
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_ja.qm
+
+#--------------------------------------------------------------------
+
+%package -n %name-lang-pack-sv
+Summary:	Swedish language pack for psi
+Group:		Networking/Instant messaging
+Requires:	locales-sv
+Provides:	%name-lang-pack
+
+%description -n %name-lang-pack-sv
+This package adds support for sv to psi.
+
+%files -n %name-lang-pack-sv
+%defattr(-,root,root)
+%{_datadir}/%name/%{name}_sv.qm
+
+#--------------------------------------------------------------------
 
 
 
 
 %prep
-%setup -q  -n %name-%version-%prever
-%setup -q -T -D -a1 -a2 -a3  -n %name-%version-%prever
+%setup -q  -n %name-%version
+%setup -q -T -D -a1 -a2 -a3  -n %name-%version
 %patch1 -p0 -b .qca
 
 %build
@@ -617,32 +429,20 @@ make install INSTALL_ROOT=%{buildroot}
 
 # Install language packages
 %__bzip2 -dc %{SOURCE50} > %{buildroot}%{_datadir}/%name/%{name}_pl.qm
-%__bzip2 -dc %{SOURCE51} > %{buildroot}%{_datadir}/%name/%{name}_sr.qm
 %__bzip2 -dc %{SOURCE52} > %{buildroot}%{_datadir}/%name/%{name}_fr.qm
-%__bzip2 -dc %{SOURCE53} > %{buildroot}%{_datadir}/%name/%{name}_eo.qm
-%__bzip2 -dc %{SOURCE54} > %{buildroot}%{_datadir}/%name/%{name}_sr@Latn.qm
-%__bzip2 -dc %{SOURCE55} > %{buildroot}%{_datadir}/%name/%{name}_fi.qm
 %__bzip2 -dc %{SOURCE56} > %{buildroot}%{_datadir}/%name/%{name}_cs.qm
 %__bzip2 -dc %{SOURCE57} > %{buildroot}%{_datadir}/%name/%{name}_ru.qm
 %__bzip2 -dc %{SOURCE58} > %{buildroot}%{_datadir}/%name/%{name}_de.qm
 %__bzip2 -dc %{SOURCE59} > %{buildroot}%{_datadir}/%name/%{name}_es.qm
 %__bzip2 -dc %{SOURCE60} > %{buildroot}%{_datadir}/%name/%{name}_mk.qm
-%__bzip2 -dc %{SOURCE61} > %{buildroot}%{_datadir}/%name/%{name}_nl.qm
-%__bzip2 -dc %{SOURCE62} > %{buildroot}%{_datadir}/%name/%{name}_sk.qm
-%__bzip2 -dc %{SOURCE63} > %{buildroot}%{_datadir}/%name/%{name}_el.qm
 %__bzip2 -dc %{SOURCE64} > %{buildroot}%{_datadir}/%name/%{name}_it.qm
-%__bzip2 -dc %{SOURCE65} > %{buildroot}%{_datadir}/%name/%{name}_se.qm
-%__bzip2 -dc %{SOURCE66} > %{buildroot}%{_datadir}/%name/%{name}_zh.qm
-%__bzip2 -dc %{SOURCE67} > %{buildroot}%{_datadir}/%name/%{name}_et.qm
-%__bzip2 -dc %{SOURCE68} > %{buildroot}%{_datadir}/%name/%{name}_vi.qm
-%__bzip2 -dc %{SOURCE69} > %{buildroot}%{_datadir}/%name/%{name}_ca.qm
-%__bzip2 -dc %{SOURCE70} > %{buildroot}%{_datadir}/%name/%{name}_hu.qm
-%__bzip2 -dc %{SOURCE71} > %{buildroot}%{_datadir}/%name/%{name}_pt.qm
+%__bzip2 -dc %{SOURCE66} > %{buildroot}%{_datadir}/%name/%{name}_zh_TW.qm
 %__bzip2 -dc %{SOURCE72} > %{buildroot}%{_datadir}/%name/%{name}_pt_BR.qm
 %__bzip2 -dc %{SOURCE73} > %{buildroot}%{_datadir}/%name/%{name}_sl.qm
-%__bzip2 -dc %{SOURCE74} > %{buildroot}%{_datadir}/%name/%{name}_bg.qm
 %__bzip2 -dc %{SOURCE75} > %{buildroot}%{_datadir}/%name/%{name}_be.qm
 %__bzip2 -dc %{SOURCE76} > %{buildroot}%{_datadir}/%name/%{name}_ur_PK.qm
+%__bzip2 -dc %{SOURCE77} > %{buildroot}%{_datadir}/%name/%{name}_ja.qm
+%__bzip2 -dc %{SOURCE78} > %{buildroot}%{_datadir}/%name/%{name}_sv.qm
 
 # icons
 %__install -D -m 644 %{name}48.png %buildroot/%_liconsdir/%name.png
