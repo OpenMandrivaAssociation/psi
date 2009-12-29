@@ -28,8 +28,9 @@ BuildRequires:	aspell-devel
 BuildRequires:	enchant-devel
 BuildRequires:	qca2-devel
 Requires:	%name-lang-pack
+Requires:	qca2-plugin-openssl
+Suggests:	qca2-plugin-gnupg
 Suggests:	psi-plugin-media
-Requires:	qca2-openssl
 # Old translations for 0.9.3
 # to update, run:
 # for i in de el es eo fi fr hu nl pl pt_BR sk sl vi bg mk;do wget http://psi-im.org/files/translation/%version/psi_${i}.qm -O `rpm --eval %_sourcedir`/psi_${i}.qm && bzip2 -f `rpm --eval %_sourcedir`/psi_${i}.qm;done
