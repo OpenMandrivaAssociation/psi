@@ -1,6 +1,6 @@
 %define name	psi
 %define version	0.14
-%define release	%mkrel	1
+%define release	%mkrel	2
 %define section	Internet/Instant Messaging
 %define title	PSI
 %define Summary	PSI Jabber client using QT4
@@ -31,29 +31,35 @@ Requires:	%name-lang-pack
 Requires:	qca2-plugin-openssl
 Suggests:	qca2-plugin-gnupg
 Suggests:	psi-plugin-media
-# Old translations for 0.9.3
-# to update, run:
-# for i in de el es eo fi fr hu nl pl pt_BR sk sl vi bg mk;do wget http://psi-im.org/files/translation/%version/psi_${i}.qm -O `rpm --eval %_sourcedir`/psi_${i}.qm && bzip2 -f `rpm --eval %_sourcedir`/psi_${i}.qm;done
-# 
+# Obsoletes old translations from 0.9.3 
+Obsoletes:	psi-lang-pack-fi < 0.14-2
+Obsoletes:	psi-lang-pack-eo < 0.14-2
+Obsoletes:	psi-lang-pack-se < 0.14-2
+Obsoletes:	psi-lang-pack-hu < 0.14-2
+Obsoletes:	psi-lang-pack-sk < 0.14-2
+Obsoletes:	psi-lang-pack-vi < 0.14-2
+Obsoletes:	psi-lang-pack-el < 0.14-2
+Obsoletes:	psi-lang-pack-sr@LATn < 0.14-2
+Obsoletes:	psi-lang-pack-et < 0.14-2
+Obsoletes:	psi-lang-pack-nl < 0.14-2
 # Translations files has been moved on psi website, you can update them using this little script
 #for i in be cs de es fr it ja mk pl pt_BR ru sl sv ur_PK zh_TW ;do wget http://psi-im.org/download/lang/psi_${i}.qm && bzip2 -f psi_${i}.qm;done
 
-
 Source50:	psi_pl.qm.bz2
-Source52:	psi_fr.qm.bz2
-Source56:	psi_cs.qm.bz2
-Source57:	psi_ru.qm.bz2
-Source58:	psi_de.qm.bz2
-Source59:	psi_es.qm.bz2
-Source60:	psi_mk.qm.bz2
-Source64:	psi_it.qm.bz2
-Source66:	psi_zh_TW.qm.bz2
-Source72:	psi_pt_BR.qm.bz2
-Source73:	psi_sl.qm.bz2
-Source75:	psi_be.qm.bz2
-Source76:	psi_ur_PK.qm.bz2
-Source77:	psi_ja.qm.bz2
-Source78:	psi_sv.qm.bz2
+Source51:	psi_fr.qm.bz2
+Source52:	psi_cs.qm.bz2
+Source53:	psi_ru.qm.bz2
+Source54:	psi_de.qm.bz2
+Source55:	psi_es.qm.bz2
+Source56:	psi_mk.qm.bz2
+Source57:	psi_it.qm.bz2
+Source58:	psi_zh_TW.qm.bz2
+Source59:	psi_pt_BR.qm.bz2
+Source60:	psi_sl.qm.bz2
+Source61:	psi_be.qm.bz2
+Source62:	psi_ur_PK.qm.bz2
+Source63:	psi_ja.qm.bz2
+Source64:	psi_sv.qm.bz2
 
 %description
 Psi is the premiere Instant Messaging application designed for Microsoft
@@ -430,20 +436,20 @@ make install INSTALL_ROOT=%{buildroot}
 
 # Install language packages
 %__bzip2 -dc %{SOURCE50} > %{buildroot}%{_datadir}/%name/%{name}_pl.qm
-%__bzip2 -dc %{SOURCE52} > %{buildroot}%{_datadir}/%name/%{name}_fr.qm
-%__bzip2 -dc %{SOURCE56} > %{buildroot}%{_datadir}/%name/%{name}_cs.qm
-%__bzip2 -dc %{SOURCE57} > %{buildroot}%{_datadir}/%name/%{name}_ru.qm
-%__bzip2 -dc %{SOURCE58} > %{buildroot}%{_datadir}/%name/%{name}_de.qm
-%__bzip2 -dc %{SOURCE59} > %{buildroot}%{_datadir}/%name/%{name}_es.qm
-%__bzip2 -dc %{SOURCE60} > %{buildroot}%{_datadir}/%name/%{name}_mk.qm
-%__bzip2 -dc %{SOURCE64} > %{buildroot}%{_datadir}/%name/%{name}_it.qm
-%__bzip2 -dc %{SOURCE66} > %{buildroot}%{_datadir}/%name/%{name}_zh_TW.qm
-%__bzip2 -dc %{SOURCE72} > %{buildroot}%{_datadir}/%name/%{name}_pt_BR.qm
-%__bzip2 -dc %{SOURCE73} > %{buildroot}%{_datadir}/%name/%{name}_sl.qm
-%__bzip2 -dc %{SOURCE75} > %{buildroot}%{_datadir}/%name/%{name}_be.qm
-%__bzip2 -dc %{SOURCE76} > %{buildroot}%{_datadir}/%name/%{name}_ur_PK.qm
-%__bzip2 -dc %{SOURCE77} > %{buildroot}%{_datadir}/%name/%{name}_ja.qm
-%__bzip2 -dc %{SOURCE78} > %{buildroot}%{_datadir}/%name/%{name}_sv.qm
+%__bzip2 -dc %{SOURCE51} > %{buildroot}%{_datadir}/%name/%{name}_fr.qm
+%__bzip2 -dc %{SOURCE52} > %{buildroot}%{_datadir}/%name/%{name}_cs.qm
+%__bzip2 -dc %{SOURCE53} > %{buildroot}%{_datadir}/%name/%{name}_ru.qm
+%__bzip2 -dc %{SOURCE54} > %{buildroot}%{_datadir}/%name/%{name}_de.qm
+%__bzip2 -dc %{SOURCE55} > %{buildroot}%{_datadir}/%name/%{name}_es.qm
+%__bzip2 -dc %{SOURCE56} > %{buildroot}%{_datadir}/%name/%{name}_mk.qm
+%__bzip2 -dc %{SOURCE57} > %{buildroot}%{_datadir}/%name/%{name}_it.qm
+%__bzip2 -dc %{SOURCE58} > %{buildroot}%{_datadir}/%name/%{name}_zh_TW.qm
+%__bzip2 -dc %{SOURCE59} > %{buildroot}%{_datadir}/%name/%{name}_pt_BR.qm
+%__bzip2 -dc %{SOURCE60} > %{buildroot}%{_datadir}/%name/%{name}_sl.qm
+%__bzip2 -dc %{SOURCE61} > %{buildroot}%{_datadir}/%name/%{name}_be.qm
+%__bzip2 -dc %{SOURCE62} > %{buildroot}%{_datadir}/%name/%{name}_ur_PK.qm
+%__bzip2 -dc %{SOURCE63} > %{buildroot}%{_datadir}/%name/%{name}_ja.qm
+%__bzip2 -dc %{SOURCE64} > %{buildroot}%{_datadir}/%name/%{name}_sv.qm
 
 # icons
 %__install -D -m 644 %{name}48.png %buildroot/%_liconsdir/%name.png
