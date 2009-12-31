@@ -1,6 +1,6 @@
 %define name	psi
 %define version	0.14
-%define release	%mkrel	2
+%define release	%mkrel	3
 %define section	Internet/Instant Messaging
 %define title	PSI
 %define Summary	PSI Jabber client using QT4
@@ -79,7 +79,7 @@ developer standpoint.
 
 %files
 %defattr(0755,root,root,0755)
-%{_bindir}/*
+%{_bindir}/%{name}
 %defattr(0644,root,root,0755)
 %doc README COPYING
 %exclude %{_datadir}/%name/README
@@ -423,7 +423,7 @@ This package adds support for sv to psi.
 %patch1 -p0 -b .qca
 
 %build
-./configure --prefix=%{_prefix} --bindir=%{_bindir} --datadir=%{_datadir} --libdir=%{_libdir} --disable-bundled-qca
+./configure --prefix=%{_prefix} --bindir=%{_bindir} --datadir=%{_datadir} --libdir=%{_libdir} --disable-bundled-qca --no-separate-debug-info
 %qmake_qt4 psi.pro
 
 %make
