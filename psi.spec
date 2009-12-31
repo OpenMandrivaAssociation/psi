@@ -39,9 +39,13 @@ Obsoletes:	psi-lang-pack-hu < 0.14-2
 Obsoletes:	psi-lang-pack-sk < 0.14-2
 Obsoletes:	psi-lang-pack-vi < 0.14-2
 Obsoletes:	psi-lang-pack-el < 0.14-2
-Obsoletes:	psi-lang-pack-sr@LATn < 0.14-2
+Obsoletes:	psi-lang-pack-sr < 0.14-2
 Obsoletes:	psi-lang-pack-et < 0.14-2
 Obsoletes:	psi-lang-pack-nl < 0.14-2
+Obsoletes:	psi-lang-pack-bg < 0.14-2
+Obsoletes:	psi-lang-pack-pt < 0.14-2
+Obsoletes:	psi-lang-pack-ca < 0.14-2
+Obsoletes:	psi-lang-pack-sr_lat < 0.14-2
 # Translations files has been moved on psi website, you can update them using this little script
 #for i in be cs de es fr it ja mk pl pt_BR ru sl sv ur_PK zh_TW ;do wget http://psi-im.org/download/lang/psi_${i}.qm && bzip2 -f psi_${i}.qm;done
 
