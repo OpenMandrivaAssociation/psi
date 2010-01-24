@@ -288,7 +288,6 @@ This package adds support for mk to psi.
 %defattr(-,root,root)
 %{_datadir}/%name/%{name}_mk.qm
 %{_datadir}/%name/qt_mk.qm
-%{_datadir}/%name/qt_mk.qm
 
 #--------------------------------------------------------------------
 
