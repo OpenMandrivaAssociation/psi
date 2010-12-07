@@ -1,6 +1,6 @@
 %define name	psi
 %define version	0.14
-%define release	%mkrel	4
+%define release	%mkrel	5
 %define section	Internet/Instant Messaging
 %define title	PSI
 %define Summary	Jabber client using QT4
