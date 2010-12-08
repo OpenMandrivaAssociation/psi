@@ -93,6 +93,7 @@ developer standpoint.
 
 %files
 %defattr(-,root,root)
+%doc README COPYING
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_miconsdir}/%{name}.png
@@ -109,8 +110,7 @@ developer standpoint.
 %{_datadir}/%{name}/iconsets/system/README
 %{_datadir}/%{name}/iconsets/system/default/
 %{_datadir}/%{name}/sound/
-%exclude %{_datadir}/%name/README
-%exclude %{_datadir}/%name/COPYING
+
 
 #--------------------------------------------------------------------
 
@@ -444,6 +444,10 @@ This package adds support for sv to psi.
 %install
 %__rm -rf %{buildroot}
 make install INSTALL_ROOT=%{buildroot}
+
+# Remove unpackaged files
+
+%__rm %{buildroot}/%{_datadir}/%name/README %{buildroot}/%{_datadir}/%name/COPYING
 
 # if some set is added/removed don't remember update files section too
 # Install smileysets
