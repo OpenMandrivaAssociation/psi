@@ -1,6 +1,6 @@
 %define name	psi
 %define version	0.14
-%define release	%mkrel	5
+%define release	%mkrel	6
 %define section	Internet/Instant Messaging
 %define title	PSI
 %define Summary	Jabber client using QT4
@@ -17,11 +17,10 @@ Source1:	%name-icons.tar.bz2
 Source2:	%name-smileysets.tar.bz2
 Source3:	%name-iconsets.tar.bz2
 Patch1:		psi-0.14-rc1-qca.patch
-BuildRoot:	%_tmppath/%name-buildroot
+Patch2:		psi-0.14-mucaffiliations-fix-crash-bug-1087.patch
 BuildRequires:	qt4-devel 
 BuildRequires:	openssl-devel
 BuildRequires:	desktop-file-utils
-BuildRequires:	libjingle-devel
 BuildRequires:	aspell-devel
 BuildRequires:	enchant-devel
 BuildRequires:	qca2-devel
@@ -434,6 +433,8 @@ This package adds support for sv to psi.
 %setup -q  -n %name-%version
 %setup -q -T -D -a1 -a2 -a3  -n %name-%version
 %patch1 -p0 -b .qca
+%patch2 -p0
+
 
 %build
 ./configure --prefix=%{_prefix} --bindir=%{_bindir} --datadir=%{_datadir} --libdir=%{_libdir} --disable-bundled-qca --no-separate-debug-info
