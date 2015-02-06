@@ -4,7 +4,7 @@
 Summary:	Jabber client using Qt4
 Name:		psi
 Version:	0.15
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Networking/Instant messaging
 Url:		http://psi-im.org
