@@ -1,5 +1,4 @@
 sources:
-  "psi-0.15.tar.bz2": 4801866d4fa2af43a9b3f431e2c9d633a97276db
   "psi-icons.tar.bz2": 228f24ddb7c55b5514dd2d45285a068424f8bec6
   "psi-iconsets.tar.bz2": 818e0a3f1c64f0ceb68c52f3e93de11f0948f808
   "psi-smileysets.tar.bz2": f65c592d4b62d115dfecd9cc2deca2e8df5da0be
@@ -23,3 +22,4 @@ sources:
   "psi_vi.qm.bz2": c83660073ebdf08c1976e4d2ddb3fc9ab03c1b40
   "psi_zh_CN.qm.bz2": f3db11bd2fefe0d4e0fe0e2f42b400c57a0fe4ce
   "psi_zh_TW.qm.bz2": 8434df08047a5df8be7b1853f5440fb6087ad578
+  psi-1.3.tar.xz: c8ff6be45b0bd478359bd3ac8d83ae4536677ed9

@@ -3,23 +3,34 @@
 
 Summary:	Jabber client using Qt4
 Name:		psi
-Version:	0.15
-Release:	3
+Version:	1.3
+Release:	1
 License:	GPLv2+
 Group:		Networking/Instant messaging
 Url:		http://psi-im.org
-Source0:	http://prdownloads.sourceforge.net/psi/%{name}-%{version}.tar.bz2
+Source0:	http://prdownloads.sourceforge.net/psi/%{name}-%{version}.tar.xz
 Source1:	%{name}-icons.tar.bz2
 Source2:	%{name}-smileysets.tar.bz2
 Source3:	%{name}-iconsets.tar.bz2
+BuildRequires:	cmake ninja
 BuildRequires:	pkgconfig(enchant)
-BuildRequires:	pkgconfig(qca2)
+BuildRequires:	pkgconfig(qca2-qt5)
 BuildRequires:	pkgconfig(openssl)
-BuildRequires:	pkgconfig(QtCore)
+BuildRequires:	cmake(Qt5Core)
+BuildRequires:	cmake(Qt5Gui)
+BuildRequires:	cmake(Qt5Network)
+BuildRequires:	cmake(Qt5Positioning)
+BuildRequires:	cmake(Qt5Qml)
+BuildRequires:	cmake(Qt5Quick)
+BuildRequires:	cmake(Qt5WebChannel)
+BuildRequires:	cmake(Qt5WebEngineCore)
+BuildRequires:	cmake(Qt5WebEngine)
+BuildRequires:	cmake(Qt5Xml)
 BuildRequires:	pkgconfig(xscrnsaver)
+BuildRequires:	pkgconfig(libidn)
 Requires:	%{name}-lang-pack = %{EVRD}
-Requires:	qca2-plugin-openssl
-Suggests:	qca2-plugin-gnupg
+Requires:	%{_lib}qca2-plugin-openssl
+Suggests:	%{_lib}qca2-plugin-gnupg
 #Suggests:	psi-plugin-media
 
 #Translations files has been moved on psi website, you can update them using this little script
@@ -56,16 +67,28 @@ developer standpoint.
 %{_miconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
-%{_iconsdir}/hicolor/*/apps/%{name}.png
+%{_datadir}/pixmaps/%{name}.png
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/client_icons.txt
+%dir %{_datadir}/%{name}/certs
 %{_datadir}/%{name}/certs/README
 %{_datadir}/%{name}/certs/startcom_ca.crt
 %{_datadir}/%{name}/certs/startcom_ca_new.crt
+%dir %{_datadir}/%{name}/iconsets
+%dir %{_datadir}/%{name}/iconsets/emoticons
 %{_datadir}/%{name}/iconsets/emoticons/default/
+%dir %{_datadir}/%{name}/iconsets/roster
 %{_datadir}/%{name}/iconsets/roster/README
 %{_datadir}/%{name}/iconsets/roster/*.jisp
 %{_datadir}/%{name}/iconsets/roster/default/
+%dir %{_datadir}/%{name}/iconsets/system
 %{_datadir}/%{name}/iconsets/system/README
 %{_datadir}/%{name}/iconsets/system/default/
+%{_datadir}/%{name}/iconsets/activities
+%{_datadir}/%{name}/iconsets/affiliations
+%{_datadir}/%{name}/iconsets/clients
+%{_datadir}/%{name}/iconsets/moods
+%{_datadir}/%{name}/themes
 %{_datadir}/%{name}/sound/
 
 #--------------------------------------------------------------------
@@ -440,24 +463,15 @@ This package adds support for Chinese to psi.
 %setup -q
 %setup -q -T -D -a1 -a2 -a3
 
-%build
-./configure \
-	--prefix=%{_prefix} \
-	--bindir=%{_bindir} \
-	--datadir=%{_datadir} \
-	--libdir=%{_libdir} \
-	--no-separate-debug-info
+%cmake_qt5 -G Ninja
 
-%make
+%build
+cd build
+%ninja_build
 
 %install
-make install INSTALL_ROOT=%{buildroot}
+%ninja_install -C build
 
-# Remove unpackaged files
-
-rm %{buildroot}/%{_datadir}/%{name}/README %{buildroot}/%{_datadir}/%{name}/COPYING
-
-# if some set is added/removed don't remember update files section too
 # Install smileysets
 cp %{name}-smileysets/* %{buildroot}%{_datadir}/%{name}/iconsets/emoticons
 # Install iconsets
