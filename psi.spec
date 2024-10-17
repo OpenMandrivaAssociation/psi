@@ -7,7 +7,7 @@ Version:	1.3
 Release:	1
 License:	GPLv2+
 Group:		Networking/Instant messaging
-Url:		http://psi-im.org
+Url:		https://psi-im.org
 Source0:	http://prdownloads.sourceforge.net/psi/%{name}-%{version}.tar.xz
 Source1:	%{name}-icons.tar.bz2
 Source2:	%{name}-smileysets.tar.bz2
